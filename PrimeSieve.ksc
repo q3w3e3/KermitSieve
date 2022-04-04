@@ -1,15 +1,14 @@
 #!/usr/local/bin/kermit +
 # \%1 is n
 
-
 ### Create a list of consecutive integers from 2 through n: (2, 3, 4, ..., n). ###
 dcl \&n[\%1]
 for \%i 2 \%1 1 {
     def \&n[\%i] \%i
 }
 def \%i 0
-### Initially, let p equal 2, the smallest prime number. ###
 
+### Initially, let p equal 2, the smallest prime number. ###
 def \%p 2
 
 ### Enumerate the multiples of p by counting in increments of p from 2p to n,
@@ -22,8 +21,6 @@ def \%i 0
 
 ### Find the smallest number in the list greater than p that is not marked. If there was no such number, stop
 ### Otherwise, let p now equal this new number (which is the next prime), and repeat from step 3.###
-
-
 for \%i \Fevaluate(\%p+1) \%1 1 {
     xif not = \&n[\%i] 0 {
         assign \%p \&n[\%i]
@@ -39,4 +36,5 @@ for \%i 2 \%1 1 {
     }
 }
 def \%i 0
+
 exit
