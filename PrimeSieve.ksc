@@ -7,7 +7,7 @@ assign \%s \v(ntime)
 ### Create a list of consecutive integers from 2 through n: (2, 3, 4, ..., n). ###
 dcl \&x[1000000]
 for \%i 2 \%n 1 {
-    def \&x[\%i] \%i
+    assign \&x[\%i] \%i
 }
 def \%i 0
 
