@@ -32,7 +32,7 @@ for \%i \Fevaluate(\%p+1) \%1 1 {
 def \%i 0
 
 ### set final time ###
-assign \%f \Fevaluate(\%s-\v(ntime))
+assign \%f \Fevaluate(\v(ntime)-\%s)
 
 ### print final array ###
 echo q3w3e3;1;\%f;algorithm=base,faithful=no
