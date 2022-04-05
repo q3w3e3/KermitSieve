@@ -8,9 +8,9 @@ assign \%s \v(ntime)
 dcl \%n 1000000
 
 ### Create a list of consecutive integers from 2 through n: (2, 3, 4, ..., n). ###
-dcl \&n[\%n]
+dcl \&x[\%n]
 for \%i 2 \%n 1 {
-    def \&n[\%i] \%i
+    def \&x[\%i] \%i
 }
 def \%i 0
 
@@ -21,15 +21,15 @@ def \%p 2
 ### and mark them in the list (these will be 2p, 3p, 4p, ...; the p itself should not be marked).###
 :MARK
 for \%i \Fevaluate(\%p*2) \%n \%p {
-    def \&n[\%i] 0    
+    def \&x[\%i] 0    
 }
 def \%i 0
 
 ### Find the smallest number in the list greater than p that is not marked. If there was no such number, stop
 ### Otherwise, let p now equal this new number (which is the next prime), and repeat from step 3.###
 for \%i \Fevaluate(\%p+1) \%n 1 {
-    xif not = \&n[\%i] 0 {
-        assign \%p \&n[\%i]
+    xif not = \&x[\%i] 0 {
+        assign \%p \&x[\%i]
         goto MARK
     }
 }
